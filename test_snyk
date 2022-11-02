@@ -1,0 +1,22 @@
+set echo on
+spool all_code_nbo.log
+
+-- all_views.sql, all_functions.sql, all_procedures.sql, all_packages.sql, all_triggers.sql sunt create de make
+
+@all_views.sql
+@all_functions.sql
+@all_procedures.sql
+@all_packages.sql
+@all_triggers.sql
+@6_types/Generic_obj.sql
+@6_types/List_of_generic_obj.sql
+@6_types/Name_value_obj.sql
+@6_types/T_array_of_varchar.sql
+@6_types/TModele.sql
+@6_types/TOffers_target.sql
+@6_types/TOffersStats.sql
+
+
+spool off
+exec dbms_utility.compile_schema(schema => 'NBO');
+exit
